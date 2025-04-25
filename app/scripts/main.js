@@ -55,3 +55,16 @@ function disableCards() {
   secondCard.removeEventListener("click", flipCard);
   resetBoard();
 }
+
+
+function unflipCards() {
+  setTimeout(() => {
+      firstCard.classList.remove('flip');
+      secondCard.classList.remove('flip');
+      resetBoard();
+  }, 1500);
+}
+
+function resetBoard() {
+  [firstCard, secondCard, lockBoard] = [null, null, false];
+}
