@@ -68,3 +68,14 @@ function unflipCards() {
 function resetBoard() {
   [firstCard, secondCard, lockBoard] = [null, null, false];
 }
+
+function resetGame() {
+  moves = 0;
+  moveCounter.textContent = `Moves: ${moves}`;
+  [firstCard, secondCard, lockBoard] = [null, null, false];
+  gameCards = [...cards, ...cards].sort(() => 0.5 - Math.random());
+  renderCards();
+}
+
+renderCards();
+document.getElementById('resetButton').addEventListener('click', resetGame);
