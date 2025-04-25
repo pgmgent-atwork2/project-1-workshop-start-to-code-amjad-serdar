@@ -7,3 +7,7 @@ const cards = [
   { name: 'pablo-escobar', img: './img/pablo-escobar.jpg' }
 ];
 
+let gameCards = [...cards, ...cards].sort(() => 0.5 - Math.random());
+let [firstCard, secondCard, lockBoard, moves] = [null, null, false, 0];
+const container = document.querySelector('.container');
+const moveCounter = document.querySelector('.counter span');
