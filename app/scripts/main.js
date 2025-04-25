@@ -49,3 +49,9 @@ function flipCard() {
 
   moveCounter.textContent = `Moves: ${++moves}`;
 }
+
+function disableCards() {
+  firstCard.removeEventListener("click", flipCard);
+  secondCard.removeEventListener("click", flipCard);
+  resetBoard();
+}
