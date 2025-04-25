@@ -30,3 +30,22 @@ function renderCards() {
   container.innerHTML = "";
   gameCards.forEach((card) => container.appendChild(createCard(card)));
 }
+
+function flipCard() {
+  if (lockBoard || this === firstCard) return;
+
+  this.classList.add("flip");
+
+  if (!firstCard) {
+    firstCard = this;
+    return;
+  }
+
+  secondCard = this;
+  lockBoard = true;
+
+  const isMatch = firstCard.dataset.name === secondCard.dataset.name;
+  isMatch ? disableCards() : unflipCards();
+
+  moveCounter.textContent = `Moves: ${++moves}`;
+}
