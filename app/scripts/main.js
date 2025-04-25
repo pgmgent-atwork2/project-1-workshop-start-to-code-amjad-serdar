@@ -25,3 +25,8 @@ function createCard(card) {
   cardElement.addEventListener("click", flipCard);
   return cardElement;
 }
+
+function renderCards() {
+  container.innerHTML = "";
+  gameCards.forEach((card) => container.appendChild(createCard(card)));
+}
