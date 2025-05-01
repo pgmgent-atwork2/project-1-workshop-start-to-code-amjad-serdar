@@ -1,81 +1,138 @@
-const cards = [
-  { name: "crying-cat", img: "./img/crying-cat-meme.webp" },
-  { name: "futurama", img: "./img/futurama.jpg" },
-  { name: "disaster-girl", img: "./img/disaster-girl.jpg" },
-  { name: "everywhere", img: "./img/everywhere.jpg" },
-  { name: "think", img: "./img/think.jpg" },
-  { name: "pablo-escobar", img: "./img/pablo-escobar.jpg" },
-];
 
-let gameCards = [...cards, ...cards].sort(() => 0.5 - Math.random());
-let [firstCard, secondCard, lockBoard, moves] = [null, null, false, 0];
-const container = document.querySelector(".container");
-const moveCounter = document.querySelector(".counter span");
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".container-1 img, .container-2 img");
 
-function createCard(card) {
-  const cardElement = document.createElement("div");
-  cardElement.className = "card";
-  cardElement.dataset.name = card.name;
+  let hasFlippedCard = false;
+  let lockBoard = false;
+  let firstCard, secondCard;
+  let moveCounter = 0;
+  let matchedPairs = 0;
 
-  cardElement.innerHTML = `
-      <div class="back"></div>
-      <img class="meme" src="${card.img}" alt="${card.name}">
-  `;
+  const counterElement = document.querySelector(".counter");
+  counterElement.innerHTML = "<span>Move-counter: 0</span>";
 
-  cardElement.addEventListener("click", flipCard);
-  return cardElement;
-}
+  const cardBackUrl =
+    'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 150 100"><rect width="150" height="100" fill="%23fda2fd"/></svg>';
 
-function renderCards() {
-  container.innerHTML = "";
-  gameCards.forEach((card) => container.appendChild(createCard(card)));
-}
+  const imageUrls = [
+    "./img/crying-cat-meme.webp",
+    "./img/futurama.jpg",
+    "./img/disaster-girl.jpg",
+    "./img/everywhere.jpg",
+    "./img/think.jpg",
+    "./img/pablo-escobar.jpg",
+  ];
 
-function flipCard() {
-  if (lockBoard || this === firstCard) return;
+  const allImages = [...imageUrls, ...imageUrls];
 
-  this.classList.add("flip");
+  shuffleArray(allImages);
 
-  if (!firstCard) {
-    firstCard = this;
-    return;
+  cards.forEach((card, index) => {
+    card.dataset.original = allImages[index];
+    card.src = cardBackUrl;
+    card.addEventListener("click", flipCard);
+  });
+
+  function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+
+    this.src = this.dataset.original;
+
+    if (!hasFlippedCard) {
+      hasFlippedCard = true;
+      firstCard = this;
+      return;
+    }
+
+    secondCard = this;
+    moveCounter++;
+    updateMoveCounter();
+
+    checkForMatch();
   }
 
-  secondCard = this;
-  lockBoard = true;
+  function checkForMatch() {
+    let isMatch = firstCard.dataset.original === secondCard.dataset.original;
 
-  const isMatch = firstCard.dataset.name === secondCard.dataset.name;
-  isMatch ? disableCards() : unflipCards();
+    if (isMatch) {
+      disableCards();
+      matchedPairs++;
 
-  moveCounter.textContent = `Moves: ${++moves}`;
-}
+      if (matchedPairs === 6) {
+        setTimeout(() => {
+          alert(`Gefeliciteerd! Je hebt gewonnen in ${moveCounter} zetten!`);
 
-function disableCards() {
-  firstCard.removeEventListener("click", flipCard);
-  secondCard.removeEventListener("click", flipCard);
-  resetBoard();
-}
+          if (!document.querySelector(".reset-button")) {
+            const resetButton = document.createElement("button");
+            resetButton.textContent = "Speel opnieuw";
+            resetButton.className = "reset-button";
+            resetButton.style.marginTop = "10px";
+            resetButton.style.padding = "5px 10px";
+            resetButton.style.backgroundColor = "#fda2fd";
+            resetButton.style.border = "none";
+            resetButton.style.borderRadius = "5px";
+            resetButton.style.cursor = "pointer";
 
+            resetButton.addEventListener("click", () => {
+              moveCounter = 0;
+              matchedPairs = 0;
+              updateMoveCounter();
 
-function unflipCards() {
-  setTimeout(() => {
-      firstCard.classList.remove('flip');
-      secondCard.classList.remove('flip');
+              shuffleArray(allImages);
+
+              cards.forEach((card, index) => {
+                card.dataset.original = allImages[index];
+                card.src = cardBackUrl;
+                card.addEventListener("click", flipCard);
+              });
+
+              resetBoard();
+
+              resetButton.remove();
+            });
+
+            counterElement.appendChild(resetButton);
+          }
+        }, 500);
+      }
+    } else {
+      unflipCards();
+    }
+  }
+
+  function disableCards() {
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
+
+    resetBoard();
+  }
+
+  function unflipCards() {
+    lockBoard = true;
+
+    setTimeout(() => {
+      firstCard.src = cardBackUrl;
+      secondCard.src = cardBackUrl;
+
       resetBoard();
-  }, 1500);
-}
+    }, 1000);
+  }
 
-function resetBoard() {
-  [firstCard, secondCard, lockBoard] = [null, null, false];
-}
+  function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+  }
 
-function resetGame() {
-  moves = 0;
-  moveCounter.textContent = `Moves: ${moves}`;
-  [firstCard, secondCard, lockBoard] = [null, null, false];
-  gameCards = [...cards, ...cards].sort(() => 0.5 - Math.random());
-  renderCards();
-}
+  function updateMoveCounter() {
+    counterElement.innerHTML = `<span>Move-counter: ${moveCounter}</span>`;
+  }
 
-renderCards();
-document.getElementById('resetButton').addEventListener('click', resetGame);
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+});
