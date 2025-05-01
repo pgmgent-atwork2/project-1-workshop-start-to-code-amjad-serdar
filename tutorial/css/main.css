@@ -1,0 +1,85 @@
+/* Basiskleuren & spacing */
+:root {
+  --clr-bg: #07192f;
+  --clr-bg-light: #0d2948;
+  --clr-primary: #00d4ff;
+  --clr-accent: #fda2fd;
+  --clr-text: #ffffff;
+  --sp: 1rem;
+}
+
+body {
+  margin: 0;
+  padding: var(--sp);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--clr-text);
+  background: var(--clr-bg);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--clr-accent);
+  margin: 2rem 0 1rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: var(--clr-primary);
+  margin: 2rem 0 1rem;
+  padding-left: 0.5rem;
+  border-left: 4px solid var(--clr-primary);
+  text-transform: uppercase;
+}
+
+.lead {
+  font-size: 1.125rem;
+}
+
+/* Layout */
+.site-header,
+.site-footer {
+  text-align: center;
+}
+
+main {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+section {
+  margin: 2.5rem 0;
+}
+
+/* Lijsten, code, links */
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+pre {
+  overflow-x: auto;
+  background: var(--clr-bg-light);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+code {
+  font-family: Consolas, Menlo, monospace;
+  color: var(--clr-accent);
+}
+
+a {
+  color: var(--clr-accent);
+  text-decoration-color: rgba(253, 162, 253, 0.4);
+}
+
+a:hover,
+a:focus {
+  text-decoration-color: var(--clr-accent);
+}
