@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="nl">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Mem(e)ory Game Tutorial</title>
 
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/reset.css">
-</head>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+  </head>
 
-<body>
+  <body>
     <header class="site-header">
-        <h1>Mem(e)ory Game Tutorial</h1>
-        <p class="lead">
-            Bouw je eigen, hilarisch <em>memory-spel</em> met memes in minder dan een uurtje.
-        </p>
+      <h1>Mem(e)ory Game Tutorial</h1>
+      <p class="lead">
+        Bouw je eigen, hilarisch <em>memory-spel</em> met memes in minder dan
+        een uurtje.
+      </p>
     </header>
 
     <main>
-        <!-- ------------------------------------------------ Benodigdheden -->
-        <section aria-labelledby="benodigdheden">
-            <h2 id="benodigdheden">Wat je nodig hebt</h2>
-            <ul>
-                <li>Visual Studio Code <span>(of een andere editor)</span></li>
-                <li>Live Server-extensie</li>
-                <li>Een moderne browser</li>
-                <li>Een map met meme-afbeeldingen</li>
-            </ul>
-        </section>
+      <!-- ------------------------------------------------ Benodigdheden -->
+      <section aria-labelledby="benodigdheden">
+        <h2 id="benodigdheden">Wat je nodig hebt</h2>
+        <ul>
+          <li>Visual Studio Code <span>(of een andere editor)</span></li>
+          <li>Live Server-extensie</li>
+          <li>Een moderne browser</li>
+          <li>Een map met meme-afbeeldingen</li>
+        </ul>
+      </section>
 
-        <!-- ------------------------------------------------ Stap 1 -->
-        <section aria-labelledby="stap1" id="stap 1">
-            <h2 id="stap1">STAP 1 - Projectstructuur opzetten</h2>
-            <p>Maak een map <code>memory-game</code> aan met deze structuur:</p>
-            <pre><code>memory-game/
+      <!-- ------------------------------------------------ Stap 1 -->
+      <section aria-labelledby="stap1" id="stap 1">
+        <h2 id="stap1">STAP 1 - Projectstructuur opzetten</h2>
+        <p>Maak een map <code>memory-game</code> aan met deze structuur:</p>
+        <pre><code>memory-game/
 ├── css/
 │   └── main.css
 ├── img/
@@ -43,30 +43,33 @@
 │   └── main.js
 └── index.html</code></pre>
 
-            <ul>
-                <li><code>index.html</code> - HTML-skelet</li>
-                <li><code>main.css</code> - styling</li>
-                <li><code>main.js</code> - spel­logica</li>
-                <li><code>img/</code> - je memes</li>
-            </ul>
-        </section>
+        <ul>
+          <li><code>index.html</code> - HTML-skelet</li>
+          <li><code>main.css</code> - styling</li>
+          <li><code>main.js</code> - spel­logica</li>
+          <li><code>img/</code> - je memes</li>
+        </ul>
+      </section>
 
-        <!-- ------------------------------------------------ Stap 2 -->
-        <section aria-labelledby="stap2" id="stap 2">
-            <h2 id="stap2">STAP 2 - Live Server starten</h2>
-            <ol>
-                <li>Open het project in VS Code.</li>
-                <li>Rechtermuis op <code>index.html</code> → <em>Open with Live Server</em>.</li>
-                <li>De pagina ververst automatisch bij elke wijziging.</li>
-            </ol>
-        </section>
+      <!-- ------------------------------------------------ Stap 2 -->
+      <section aria-labelledby="stap2" id="stap 2">
+        <h2 id="stap2">STAP 2 - Live Server starten</h2>
+        <ol>
+          <li>Open het project in VS Code.</li>
+          <li>
+            Rechtermuis op <code>index.html</code> →
+            <em>Open with Live Server</em>.
+          </li>
+          <li>De pagina ververst automatisch bij elke wijziging.</li>
+        </ol>
+      </section>
 
-        <!-- ------------------------------------------------ Stap 3 -->
-        <section aria-labelledby="stap3" id="stap 3">
-            <h2 id="stap3">STAP 3 - HTML-structuur</h2>
-            <p>Kopieer onderstaande markup in <code>index.html</code>:</p>
-            <h3>index.html</h3>
-            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+      <!-- ------------------------------------------------ Stap 3 -->
+      <section aria-labelledby="stap3" id="stap 3">
+        <h2 id="stap3">STAP 3 - HTML-structuur</h2>
+        <p>Kopieer onderstaande markup in <code>index.html</code>:</p>
+        <h3>index.html</h3>
+        <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
   &lt;head&gt;
     &lt;meta charset="UTF-8" /&gt;
@@ -121,23 +124,30 @@
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-            <p><strong>Waarom?</strong> Het grid bevat twee containers met elk zes kaarten,
-                <code>.counter</code> toont het aantal zetten en de knop linkt naar een easter egg.
-                <br>De afbeeldingen zijn nog niet zichtbaar, omdat ze pas in de JavaScript-code worden geladen.
-                <br>Je zou nu de pagina moeten zien zonder enige opmaak, zoals in de screenshot
-                hieronder.
-            </p>
+        <p>
+          <strong>Waarom?</strong> Het grid bevat twee containers met elk zes
+          kaarten, <code>.counter</code> toont het aantal zetten en de knop
+          linkt naar een easter egg. <br />De afbeeldingen zijn nog niet
+          zichtbaar, omdat ze pas in de JavaScript-code worden geladen. <br />Je
+          zou nu de pagina moeten zien zonder enige opmaak, zoals in de
+          screenshot hieronder.
+        </p>
 
-            <img src="img/schermafbeelding-html.png" alt="Schermafbeelding van de html">
-        </section>
+        <img
+          src="img/schermafbeelding-html.png"
+          alt="Schermafbeelding van de html"
+        />
+      </section>
 
-        <!-- ------------------------------------------------ Stap 4 -->
-        <section aria-labelledby="stap4" id="stap 4">
-            <h2 id="stap4">STAP 4 - Styling (CSS)</h2>
-            <p>Plak onderstaande CSS in <code>css/main.css</code>. De belangrijkste regels
-                staan ook verderop in dit document.</p>
-            <h3>css/main.css</h3>
-            <pre><code class="language-css">body {
+      <!-- ------------------------------------------------ Stap 4 -->
+      <section aria-labelledby="stap4" id="stap 4">
+        <h2 id="stap4">STAP 4 - Styling (CSS)</h2>
+        <p>
+          Plak onderstaande CSS in <code>css/main.css</code>. De belangrijkste
+          regels staan ook verderop in dit document.
+        </p>
+        <h3>css/main.css</h3>
+        <pre><code class="language-css">body {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -213,179 +223,217 @@
           .btn a { text-decoration: none; color: black; }
           
           footer { color: #fda2fd; }</code></pre>
-            <p><strong>Waarom?</strong> De CSS zorgt voor een leuke achtergrond, een grid-layout
-                en een hover-effect op de kaarten. De <code>.btn</code> is een link naar een easter egg.
-                <br>Je zou nu de pagina moeten zien met opmaak, zoals in de screenshot hieronder.
-                <br>De afbeeldingen zijn zichtbaar omdat de JavaScript-code nog niet is geladen.
+        <p>
+          <strong>Waarom?</strong> De CSS zorgt voor een leuke achtergrond, een
+          grid-layout en een hover-effect op de kaarten. De <code>.btn</code> is
+          een link naar een easter egg. <br />Je zou nu de pagina moeten zien
+          met opmaak, zoals in de screenshot hieronder. <br />De afbeeldingen
+          zijn zichtbaar omdat de JavaScript-code nog niet is geladen.
 
-                <img src="img/schermafbeelding-html+css.png" alt="Schermafbeelding van de html en css">
-        </section>
+          <img
+            src="img/schermafbeelding-html+css.png"
+            alt="Schermafbeelding van de html en css"
+          />
+        </p>
+      </section>
 
-        <!-- ------------------------------------------------ Stap 5 -->
-        <section aria-labelledby="stap5" id="stap 5">
-            <h2 id="stap5">STAP 5 - JavaScript-logica</h2>
-            <p>Voeg de volledige JS-code toe in <code>scripts/main.js</code>. De kern-
-                functies zijn <code>flipCard()</code>, <code>checkForMatch()</code> en
-                <code>updateMoveCounter()</code>.
-            </p>
-            <h3>scripts/main.js</h3>
-            <pre><code class="language-js">document.addEventListener("DOMContentLoaded", () =&gt; {
-        const cards = document.querySelectorAll(".container-1 img, .container-2 img");
-      
-        let hasFlippedCard = false;
-        let lockBoard = false;
-        let firstCard, secondCard;
-        let moveCounter = 0;
-        let matchedPairs = 0;
-      
-        const counterElement = document.querySelector(".counter");
-        counterElement.innerHTML = "&lt;span&gt;Move-counter: 0&lt;/span&gt;";
-      
-        const cardBackUrl =
-          'data:image/svg+xml;utf8,&lt;svg xmlns="http://www.w3.org/2000/svg" width="150" height="100"&gt;&lt;rect width="150" height="100" fill="%23fda2fd"/&gt;&lt;/svg&gt;';
-      
-        const imageUrls = [
-          "./img/crying-cat-meme.webp",
-          "./img/futurama.jpg",
-          "./img/disaster-girl.jpg",
-          "./img/everywhere.jpg",
-          "./img/think.jpg",
-          "./img/pablo-escobar.jpg",
-        ];
-      
-        const allImages = [...imageUrls, ...imageUrls];
-        shuffleArray(allImages);
-      
-        cards.forEach((card, i) =&gt; {
-          card.dataset.original = allImages[i];
-          card.src = cardBackUrl;
-          card.addEventListener("click", flipCard);
-        });
-      
-        function flipCard() {
-          if (lockBoard || this === firstCard) return;
-          this.src = this.dataset.original;
-      
-          if (!hasFlippedCard) {
-            hasFlippedCard = true;
-            firstCard = this;
-            return;
-          }
-          secondCard = this;
-          moveCounter++;
-          updateCounter();
-          checkForMatch();
-        }
-      
-        function checkForMatch() {
-          const isMatch = firstCard.dataset.original === secondCard.dataset.original;
-          isMatch ? disableCards() : unflipCards();
-        }
-      
-        function disableCards() {
-          firstCard.removeEventListener("click", flipCard);
-          secondCard.removeEventListener("click", flipCard);
-          matchedPairs++;
-          resetBoard();
-          if (matchedPairs === 6) winGame();
-        }
-      
-        function unflipCards() {
-          lockBoard = true;
-          setTimeout(() =&gt; {
-            firstCard.src = cardBackUrl;
-            secondCard.src = cardBackUrl;
-            resetBoard();
-          }, 1000);
-        }
-      
-        function resetBoard() {
-          [hasFlippedCard, lockBoard] = [false, false];
-          [firstCard, secondCard] = [null, null];
-        }
-      
-        function updateCounter() {
-          counterElement.innerHTML = `&lt;span&gt;Move-counter: ${moveCounter}&lt;/span&gt;`;
-        }
-      
-        function shuffleArray(arr) {
-          for (let i = arr.length - 1; i &gt; 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-          }
-        }
-      
-        function winGame() {
-          setTimeout(() =&gt; {
-            alert(`Gefeliciteerd! Je hebt gewonnen in ${moveCounter} zetten!`);
-            if (!document.querySelector(".reset-button")) {
-              const btn = document.createElement("button");
-              btn.textContent = "Speel opnieuw";
-              btn.className = "reset-button";
-              btn.style.cssText =
-                "margin-top:10px;padding:5px 10px;background:#fda2fd;border:none;border-radius:5px;cursor:pointer";
-              btn.addEventListener("click", resetGame);
-              counterElement.appendChild(btn);
-            }
-          }, 500);
-        }
-      
-        function resetGame() {
-          moveCounter = matchedPairs = 0;
-          updateCounter();
-          shuffleArray(allImages);
-          cards.forEach((card, i) =&gt; {
-            card.dataset.original = allImages[i];
-            card.src = cardBackUrl;
-            card.addEventListener("click", flipCard);
-          });
-          this.remove();
-          resetBoard();
-        }
-      });</code></pre>
+      <!-- ------------------------------------------------ Stap 5 -->
+      <section aria-labelledby="stap5" id="stap 5">
+        <h2 id="stap5">STAP 5 - JavaScript-logica</h2>
+        <p>
+          Voeg de volledige JS-code toe in <code>scripts/main.js</code>. De
+          kern- functies zijn <code>flipCard()</code>,
+          <code>checkForMatch()</code> en <code>updateMoveCounter()</code>.
+        </p>
+        <h3>scripts/main.js</h3>
+        <p>
+          Zodra de web­pagina volledig is geladen, wijs ik de kaarten aan en
+          maak ik notitie­blokjes om bij te houden: “welke kaart is omgedraaid,
+          hoeveel zetten heb je al gedaan, hoeveel paren zijn gevonden…”.
+        </p>
 
-            <p><strong>Waarom?</strong> De JavaScript-code zorgt voor de spel­logica, zoals het
-                omdraaien van kaarten, het bijhouden van de score en het resetten van het spel.
-                <br>Je zou nu de pagina moeten zien met opmaak, zoals in de screenshot hieronder.
-                <br>De afbeeldingen zijn verborgen omdat de JavaScript-code is geladen via het script onderaan de html
-                pagina, net voor de sluitende body tag.
+        <iframe
+          height="300"
+          style="width: 100%"
+          scrolling="no"
+          title="Untitled"
+          src="https://codepen.io/amjadxsoufix/embed/EaaQOpr?default-tab=js&theme-id=light"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/amjadxsoufix/pen/EaaQOpr"> Untitled</a> by
+          amjadxsoufix (<a href="https://codepen.io/amjadxsoufix"
+            >@amjadxsoufix</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
 
-                <img src="img/schermafbeelding-html+css+js.png" alt="Schermafbeelding van de html, css en js">
-            </p>
-        </section>
+        <p>
+          Ik verzamel zes grappige plaatjes, maak er een dubbele set van (twaalf
+          stuks) en schud alles door elkaar. Tegelijk teken ik een effen roze
+          achterkant voor iedere kaart.
+        </p>
 
-        <!-- ------------------------------------------------ Stap 6 -->
-        <section aria-labelledby="stap6" id="stap 6">
-            <h2 id="stap6">STAP 6 - Testen & spelen</h2>
-            <ol>
-                <li>Zorg dat alle afbeeldingen in <code>img/</code> staan.</li>
-                <li>Herstart zo nodig Live Server.</li>
-                <li>Speel het spel en verbeter je high-score!</li>
-            </ol>
-        </section>
+        <iframe
+          height="300"
+          style="width: 100%"
+          scrolling="no"
+          title="Untitled"
+          src="https://codepen.io/amjadxsoufix/embed/PwwQxBb?default-tab=js&theme-id=light"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/amjadxsoufix/pen/PwwQxBb"> Untitled</a> by
+          amjadxsoufix (<a href="https://codepen.io/amjadxsoufix"
+            >@amjadxsoufix</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
 
-        <!-- ------------------------------------------------ Bonus -->
-        <section aria-labelledby="bonus">
-            <h2 id="bonus">Bonus: uitbreiden</h2>
-            <ul>
-                <li>Vervang memes door eigen favorieten.</li>
-                <li>Voeg thema-wissels of geluidseffecten toe.</li>
-            </ul>
-        </section>
+        <p>
+          Elke digitale kaart krijgt stiekem één van die plaatjes toegewezen,
+          maar toont voorlopig alleen de roze rug. Ook plak ik op elke kaart een
+          onzichtbaar “klik hier”-briefje, zodat hij reageert als je erop klikt.
+        </p>
 
-        <!-- ------------------------------------------------ Gefeliciteerd -->
-        <section aria-labelledby="gefeliciteerd">
-            <h2 id="gefeliciteerd">Gefeliciteerd 🎉</h2>
-            <p>Je Mem(e)ory Game is klaar. Veel plezier met spelen!</p>
-        </section>
+        <iframe
+          height="300"
+          style="width: 100%"
+          scrolling="no"
+          title="Untitled"
+          src="https://codepen.io/amjadxsoufix/embed/KwwQrxQ?default-tab=js&theme-id=light"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/amjadxsoufix/pen/KwwQrxQ"> Untitled</a> by
+          amjadxsoufix (<a href="https://codepen.io/amjadxsoufix"
+            >@amjadxsoufix</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+
+        <p>
+          Als je op een kaart klikt: 1) hij draait om en laat zijn plaatje zien;
+          2) bij de tweede klik tel ik één zet op; 3) daarna roep ik de
+          controle-scheidsrechter (volgende stap).
+        </p>
+
+        <iframe
+          height="300"
+          style="width: 100%"
+          scrolling="no"
+          title="Untitled"
+          src="https://codepen.io/amjadxsoufix/embed/bNNLQmr?default-tab=js&theme-id=light"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/amjadxsoufix/pen/bNNLQmr"> Untitled</a> by
+          amjadxsoufix (<a href="https://codepen.io/amjadxsoufix"
+            >@amjadxsoufix</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+
+        <p>
+          Kijken of de 2 open kaarten gelijk zijn. • Gelijk → blijven open •
+          Niet gelijk → na 1 s weer dicht. Wanneer alle 6 paren open liggen:
+          pop-up “Gewonnen!” + knop “Speel opnieuw”.
+        </p>
+
+        <iframe
+          height="300"
+          style="width: 100%"
+          scrolling="no"
+          title="Untitled"
+          src="https://codepen.io/amjadxsoufix/embed/emmVQPP?default-tab=js&theme-id=light"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/amjadxsoufix/pen/emmVQPP"> Untitled</a> by
+          amjadxsoufix (<a href="https://codepen.io/amjadxsoufix"
+            >@amjadxsoufix</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+
+        <p>
+          Druk je op “Speel opnieuw”, dan wis ik de score, schud ik alle
+          plaatjes opnieuw, steek ik ze onder de kaarten en zet alles weer
+          dicht. Het spel is als nieuw.
+        </p>
+
+        <iframe
+          height="300"
+          style="width: 100%"
+          scrolling="no"
+          title="Untitled"
+          src="https://codepen.io/amjadxsoufix/embed/XJJZyyo?default-tab=js&theme-id=light"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/amjadxsoufix/pen/XJJZyyo"> Untitled</a> by
+          amjadxsoufix (<a href="https://codepen.io/amjadxsoufix"
+            >@amjadxsoufix</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+
+        <p>
+          <strong>Waarom?</strong> De JavaScript-code zorgt voor de spel­logica,
+          zoals het omdraaien van kaarten, het bijhouden van de score en het
+          resetten van het spel. <br />Je zou nu de pagina moeten zien met
+          opmaak, zoals in de screenshot hieronder. <br />De afbeeldingen zijn
+          verborgen omdat de JavaScript-code is geladen via het script onderaan
+          de html pagina, net voor de sluitende body tag.
+
+          <img
+            src="img/schermafbeelding-html+css+js.png"
+            alt="Schermafbeelding van de html, css en js"
+          />
+        </p>
+      </section>
+
+      <!-- ------------------------------------------------ Stap 6 -->
+      <section aria-labelledby="stap6" id="stap 6">
+        <h2 id="stap6">STAP 6 - Testen & spelen</h2>
+        <ol>
+          <li>Zorg dat alle afbeeldingen in <code>img/</code> staan.</li>
+          <li>Herstart zo nodig Live Server.</li>
+          <li>Speel het spel en verbeter je high-score!</li>
+        </ol>
+      </section>
+
+      <!-- ------------------------------------------------ Bonus -->
+      <section aria-labelledby="bonus">
+        <h2 id="bonus">Bonus: uitbreiden</h2>
+        <ul>
+          <li>Vervang memes door eigen favorieten.</li>
+          <li>Voeg thema-wissels of geluidseffecten toe.</li>
+        </ul>
+      </section>
+
+      <!-- ------------------------------------------------ Gefeliciteerd -->
+      <section aria-labelledby="gefeliciteerd">
+        <h2 id="gefeliciteerd">Gefeliciteerd 🎉</h2>
+        <p>Je Mem(e)ory Game is klaar. Veel plezier met spelen!</p>
+      </section>
     </main>
 
     <!-- ================================================= FOOTER -->
     <footer class="site-footer">
-        <p>© Arteveldehogeschool Gent
-            2025
-        </p>
+      <p>© Arteveldehogeschool Gent 2025</p>
     </footer>
-</body>
-
+  </body>
 </html>
