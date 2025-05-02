@@ -69,60 +69,23 @@
         <h2 id="stap3">STAP 3 - HTML-structuur</h2>
         <p>Kopieer onderstaande markup in <code>index.html</code>:</p>
         <h3>index.html</h3>
-        <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8" /&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
-    &lt;title&gt;Mem(e)ory Game&lt;/title&gt;
-
-    &lt;link rel="stylesheet" href="css/main.css" /&gt;
-  &lt;/head&gt;
-
-  &lt;body&gt;
-    &lt;header&gt;
-      &lt;h1&gt;Mem(e)ory Game&lt;/h1&gt;
-    &lt;/header&gt;
-
-    &lt;main&gt;
-      &lt;div class="game-board"&gt;
-        &lt;div class="container-1"&gt;
-          &lt;img class="meme-1" src="./img/crying-cat-meme.webp" alt="crying-cat" /&gt;
-          &lt;img class="meme-2" src="./img/futurama.jpg" alt="futurama" /&gt;
-          &lt;img class="meme-3" src="./img/disaster-girl.jpg" alt="disaster-girl" /&gt;
-          &lt;img class="meme-4" src="./img/everywhere.jpg" alt="everywhere" /&gt;
-          &lt;img class="meme-5" src="./img/think.jpg" alt="think" /&gt;
-          &lt;img class="meme-6" src="./img/pablo-escobar.jpg" alt="pablo-escobar" /&gt;
-        &lt;/div&gt;
-
-        &lt;div class="container-2"&gt;
-          &lt;img class="meme-1" src="./img/crying-cat-meme.webp" alt="crying-cat" /&gt;
-          &lt;img class="meme-2" src="./img/futurama.jpg" alt="futurama" /&gt;
-          &lt;img class="meme-3" src="./img/think.jpg" alt="think" /&gt;
-          &lt;img class="meme-4" src="./img/futurama.jpg" alt="futurama" /&gt;
-          &lt;img class="meme-5" src="./img/everywhere.jpg" alt="everywhere" /&gt;
-          &lt;img class="meme-6" src="./img/disaster-girl.jpg" alt="disaster-girl" /&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;aside class="counter"&gt;
-        &lt;span&gt;Move-counter: 0&lt;/span&gt;
-        &lt;!-- De reset knop wordt hier via JavaScript toegevoegd --&gt;
-      &lt;/aside&gt;
-
-      &lt;aside class="btn"&gt;
-        &lt;a href="https://youtu.be/hPr-Yc92qaY?si=c-xqbk7TVCs3HjJ9"
-           target="_blank" rel="noopener noreferrer"&gt;CLICK ME!!!&lt;/a&gt;
-      &lt;/aside&gt;
-    &lt;/main&gt;
-
-    &lt;footer&gt;
-      &lt;p&gt;Created by Serdar &amp; Amjad&lt;/p&gt;
-    &lt;/footer&gt;
-
-    &lt;script src="./scripts/main.js"&gt;&lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+        <iframe
+          height="300"
+          style="width: 100%"
+          scrolling="no"
+          title="Untitled"
+          src="https://codepen.io/amjadxsoufix/embed/EaaQOqB?default-tab=js&theme-id=light"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/amjadxsoufix/pen/EaaQOqB"> Untitled</a> by
+          amjadxsoufix (<a href="https://codepen.io/amjadxsoufix"
+            >@amjadxsoufix</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
 
         <p>
           <strong>Waarom?</strong> Het grid bevat twee containers met elk zes
@@ -147,82 +110,23 @@
           regels staan ook verderop in dit document.
         </p>
         <h3>css/main.css</h3>
-        <pre><code class="language-css">body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-image: url("../img/nyan-cat-background.jpg");
-            background-size: cover;
-            background-position: center;
-          }
-          
-          header {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-          }
-          
-          h1 {
-            font-size: 2.5rem;
-            color: #fda2fd;
-            margin-bottom: 1rem;
-          }
-          
-          /* Layout */
-          main {
-            width: 100%;
-            max-width: 60rem;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            row-gap: 1rem;
-          }
-          
-          aside.counter { grid-column: 1; }
-          div.game-board { grid-column: 2; }
-          aside.btn { grid-column: 3; }
-          
-          /* Cards grid */
-          .container-1,
-          .container-2 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 15px;
-            width: 100%;
-          }
-          
-          .container-1 { margin-bottom: 5rem; }
-          
-          /* Card visuals */
-          .container-1 img,
-          .container-2 img {
-            width: 150px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 15px;
-            background-color: #fda2fd;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-          }
-          
-          .container-1 img:hover,
-          .container-2 img:hover { transform: scale(1.05); }
-          
-          /* Counter & button */
-          .counter,
-          .btn {
-            background-color: #fda2fd;
-            padding: 10px 20px;
-            border-radius: 25px;
-            margin: 15px 0;
-            color: black;
-            font-weight: bold;
-          }
-          
-          .btn { align-self: flex-end; }
-          .btn a { text-decoration: none; color: black; }
-          
-          footer { color: #fda2fd; }</code></pre>
+        <iframe
+          height="300"
+          style="width: 100%"
+          scrolling="no"
+          title="Untitled"
+          src="https://codepen.io/amjadxsoufix/embed/bNNLOba?default-tab=js&theme-id=light"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/amjadxsoufix/pen/bNNLOba"> Untitled</a> by
+          amjadxsoufix (<a href="https://codepen.io/amjadxsoufix"
+            >@amjadxsoufix</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
         <p>
           <strong>Waarom?</strong> De CSS zorgt voor een leuke achtergrond, een
           grid-layout en een hover-effect op de kaarten. De <code>.btn</code> is
