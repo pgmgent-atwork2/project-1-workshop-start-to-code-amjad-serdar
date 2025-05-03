@@ -1,6 +1,7 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".container-1 img, .container-2 img");
+  const audio = document.querySelector("audio");
+  let isFirstClick = true;
 
   let hasFlippedCard = false;
   let lockBoard = false;
@@ -36,6 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
+
+    if (isFirstClick && audio) {
+      audio.play().catch((error) => {
+        console.log("Audio playback failed:", error);
+      });
+      isFirstClick = false;
+    }
 
     this.src = this.dataset.original;
 
