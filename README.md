@@ -2,7 +2,7 @@
 
 ## Overzicht
 
-Dit is een memory game met 12 kaarten, elk met verschillende paren presidenten die aan elkaar gekoppeld moeten worden. Elke president heeft twee kaarten die in het begin omgedraaid zijn en niet zichtbaar zijn. Het doel is om de paren te vinden door de kaarten om te draaien.
+Dit is een memory game met 12 kaarten, elk met verschillende paren memes die aan elkaar gekoppeld moeten worden. Elke meme heeft twee kaarten die in het begin omgedraaid, dus niet zichtbaar zijn. Het doel is om de paren te vinden door de kaarten één per één om te draaien.
 
 ## Stappenplan
 
