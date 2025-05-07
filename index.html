@@ -13,6 +13,7 @@
 <body>
   <header class="site-header">
     <h1>Mem(e)ory Game Tutorial</h1>
+
     <p class="lead">
       Bouw je eigen, hilarisch <em>memory-spel</em> met memes in minder dan
       een uurtje.
@@ -23,6 +24,7 @@
     <!-- ------------------------------------------------ Benodigdheden -->
     <section aria-labelledby="benodigdheden">
       <h2 id="benodigdheden">Wat je nodig hebt</h2>
+
       <ul>
         <li>Visual Studio Code <span>(of een andere editor)</span></li>
         <li>Live Server-extensie</li>
@@ -34,7 +36,9 @@
     <!-- ------------------------------------------------ Stap 1 -->
     <section aria-labelledby="stap1" id="stap 1">
       <h2 id="stap1">STAP 1 - Projectstructuur opzetten</h2>
+
       <p>Maak een map <code>memory-game</code> aan met deze structuur:</p>
+
       <pre><code>memory-game/
 ├── css/
 │   └── main.css
@@ -55,6 +59,7 @@
     <!-- ------------------------------------------------ Stap 2 -->
     <section aria-labelledby="stap2" id="stap 2">
       <h2 id="stap2">STAP 2 - Live Server starten</h2>
+
       <ol>
         <li>Open het project in VS Code.</li>
         <li>
@@ -68,8 +73,11 @@
     <!-- ------------------------------------------------ Stap 3 -->
     <section aria-labelledby="stap3" id="stap 3">
       <h2 id="stap3">STAP 3 - HTML-structuur</h2>
+
       <p>Kopieer onderstaande markup in <code>index.html</code>:</p>
+
       <h3>index.html</h3>
+
       <iframe height="300" style="width: 100%" scrolling="no" title="Untitled"
         src="https://codepen.io/amjadxsoufix/embed/EaaQOqB?default-tab=js&theme-id=light" frameborder="no"
         loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -94,11 +102,14 @@
     <!-- ------------------------------------------------ Stap 4 -->
     <section aria-labelledby="stap4" id="stap 4">
       <h2 id="stap4">STAP 4 - Styling (CSS)</h2>
+
       <p>
         Plak onderstaande CSS in <code>css/main.css</code>. De belangrijkste
         regels staan ook verderop in dit document.
       </p>
+
       <h3>css/main.css</h3>
+
       <iframe height="300" style="width: 100%" scrolling="no" title="Untitled"
         src="https://codepen.io/amjadxsoufix/embed/bNNLOba?default-tab=js&theme-id=light" frameborder="no"
         loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -107,6 +118,7 @@
         amjadxsoufix (<a href="https://codepen.io/amjadxsoufix">@amjadxsoufix</a>) on <a
           href="https://codepen.io">CodePen</a>.
       </iframe>
+
       <p>
         <strong>Waarom?</strong> De CSS zorgt voor een leuke achtergrond, een
         grid-layout en een hover-effect op de kaarten. De <code>.btn</code> is
@@ -121,15 +133,20 @@
     <!-- ------------------------------------------------ Stap 5 -->
     <section aria-labelledby="stap5" id="stap 5">
       <h2 id="stap5">STAP 5 - JavaScript-logica</h2>
+
       <p>
         Voeg de volledige JS-code toe in <code>scripts/main.js</code>. De
         kern- functies zijn <code>flipCard()</code>,
         <code>checkForMatch()</code> en <code>updateMoveCounter()</code>.
       </p>
+
       <h3>scripts/main.js</h3>
+
+      <h4>5.1</h4>
+
       <p>
-        Zodra de web­pagina volledig is geladen, wijs ik de kaarten aan en
-        maak ik notitie­blokjes om bij te houden: “welke kaart is omgedraaid,
+        Zodra de webpagina volledig is geladen, wijs ik de kaarten aan en
+        maak ik notitieblokjes om bij te houden: “welke kaart is omgedraaid,
         hoeveel zetten heb je al gedaan, hoeveel paren zijn gevonden…”.
       </p>
 
@@ -141,6 +158,8 @@
         amjadxsoufix (<a href="https://codepen.io/amjadxsoufix">@amjadxsoufix</a>) on <a
           href="https://codepen.io">CodePen</a>.
       </iframe>
+
+      <h4>5.2</h4>
 
       <p>
         Ik verzamel zes grappige plaatjes, maak er een dubbele set van (twaalf
@@ -157,6 +176,8 @@
           href="https://codepen.io">CodePen</a>.
       </iframe>
 
+      <h4>5.3</h4>
+
       <p>
         Elke digitale kaart krijgt stiekem één van die plaatjes toegewezen,
         maar toont voorlopig alleen de roze rug. Ook plak ik op elke kaart een
@@ -172,9 +193,16 @@
           href="https://codepen.io">CodePen</a>.
       </iframe>
 
+      <h4>5.4</h4>
+
       <p>
-        Als je op een kaart klikt: 1) hij draait om en laat zijn plaatje zien;
-        2) bij de tweede klik tel ik één zet op; 3) daarna roep ik de
+        Als je op een kaart klikt:
+        <br>
+        1) hij draait om en laat zijn plaatje zien;
+        <br>
+        2) bij de tweede klik tel ik één zet op;
+        <br>
+        3) daarna roep ik de
         controle-scheidsrechter (volgende stap).
       </p>
 
@@ -186,6 +214,8 @@
         amjadxsoufix (<a href="https://codepen.io/amjadxsoufix">@amjadxsoufix</a>) on <a
           href="https://codepen.io">CodePen</a>.
       </iframe>
+
+      <h4>5.5</h4>
 
       <p>
         Kijken of de 2 open kaarten gelijk zijn. • Gelijk → blijven open •
@@ -201,6 +231,8 @@
         amjadxsoufix (<a href="https://codepen.io/amjadxsoufix">@amjadxsoufix</a>) on <a
           href="https://codepen.io">CodePen</a>.
       </iframe>
+
+      <h4>5.6</h4>
 
       <p>
         Druk je op “Speel opnieuw”, dan wis ik de score, schud ik alle
@@ -218,43 +250,47 @@
       </iframe>
 
       <p>
-        <strong>Waarom?</strong> De JavaScript-code zorgt voor de spel­logica,
-        zoals het omdraaien van kaarten, het bijhouden van de score en het
-        resetten van het spel. <br />Je zou nu de pagina moeten zien met
+        Je zou nu de pagina moeten zien met
         opmaak, zoals in de screenshot hieronder. <br />De afbeeldingen zijn
         verborgen omdat de JavaScript-code is geladen via het script onderaan
         de html pagina, net voor de sluitende body tag.
-
-        <img src="img/schermafbeelding-html+css+js.png" alt="Schermafbeelding van de html, css en js" />
       </p>
+
+      <img src="img/schermafbeelding-html+css+js.png" alt="Schermafbeelding van de html, css en js" />
     </section>
 
     <!-- ------------------------------------------------ Stap 6 -->
     <section aria-labelledby="stap6" id="stap 6">
       <h2 id="stap6">STAP 6 - Testen & spelen</h2>
+
       <ol>
         <li>Zorg dat alle afbeeldingen in <code>img/</code> staan.</li>
         <li>Herstart zo nodig Live Server.</li>
         <li>Speel het spel en verbeter je high-score!</li>
       </ol>
+
     </section>
 
     <!-- ------------------------------------------------ Bonus -->
     <section aria-labelledby="bonus">
       <h2 id="bonus">Bonus: uitbreiden</h2>
+
       <ul>
         <li>Vervang memes door eigen favorieten.</li>
         <li>Voeg thema-wissels of geluidseffecten toe.</li>
       </ul>
+
     </section>
 
     <!-- ------------------------------------------------ Gefeliciteerd -->
     <section aria-labelledby="gefeliciteerd">
       <h2 id="gefeliciteerd">Gefeliciteerd 🎉</h2>
+
       <p>Je Mem(e)ory Game is klaar. Veel plezier met spelen!</p>
     </section>
 
     <p>Play the game!!</p>
+
     <a href="./app/game.html">click me!</a>
   </main>
 

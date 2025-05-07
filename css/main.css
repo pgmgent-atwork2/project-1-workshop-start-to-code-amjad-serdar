@@ -38,6 +38,17 @@ h2 {
   text-transform: uppercase;
 }
 
+h4 {
+  font-size: 1.25rem;
+  color: var(--clr-primary);
+  margin: 2rem 0 1rem;
+}
+
+p {
+  margin: 1rem 0 1rem 0;
+  color: var(--clr-text);
+}
+
 .lead {
   font-size: 1.125rem;
 }
